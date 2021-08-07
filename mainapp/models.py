@@ -28,8 +28,8 @@ class Product(models.Model):
         verbose_name='категоря',
     )
     name = models.CharField(
-        max_length=128,
         verbose_name='название продукта',
+        max_length=128,
     )
     short_desc = models.CharField(
         max_length=256,
