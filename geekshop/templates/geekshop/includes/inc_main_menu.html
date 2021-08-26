@@ -11,12 +11,20 @@
     </a>
    <a href="{% url 'basket:view' %}" >
        <span>
-           {% if basket %} ({{ basket|length }}) {% endif %}
+           {% if basket %}
+               {{ basket.0.total_cost|floatformat:0 }} руб
+               ({{ basket.0.total_quantity }} шт )
+           {% endif %}
        </span>
    </a>
 </li>
-{% endif %}
-<li>
+      {% if user.is_superuser %}
+        <li>
+            <a href="{% url 'admin_staff:users' %}">админка</a>
+        </li>
+      {% endif %}
+
+      {% endif %}
     {% if user.is_authenticated %}
       <a href="{% url 'auth:logout' %}">выйти</a>
     {% else %}
