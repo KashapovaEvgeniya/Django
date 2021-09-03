@@ -58,9 +58,11 @@ class Product(models.Model):
         default=0,
     )
 
+    is_active = models.BooleanField(default=True)
+
     def __str__(self):
         return f'{self.name} - {self.pk}'
 
     class Meta:
-         verbose_name = 'товар'
-         verbose_name_plural = 'товары'
+        verbose_name = 'товар'
+        verbose_name_plural = 'товары'
