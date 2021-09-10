@@ -7,7 +7,7 @@ from authapp.forms import ShopUserRegisterForm, ShopUserEditForm
 from authapp.models import ShopUser
 from mainapp.models import ProductCategory, Product
 from django.contrib.auth.decorators import user_passes_test
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -111,6 +111,8 @@ def user_delete(request, id):
     return HttpResponseRedirect(reverse('admin_staff:users'))
 
 
+
+
 @user_passes_test(lambda u: u.is_superuser)  # для контроля входа, только пользователи с флагом is_superuser
 def categories(request):
     title = 'админка/категории'
@@ -166,6 +168,7 @@ def category_update(request, pk):
         'update_form': edit_form,
     }
     return render(request, 'adminapp/categories_update.html', context)
+
 
 
 @user_passes_test(lambda u: u.is_staff)
