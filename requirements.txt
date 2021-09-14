@@ -6,5 +6,5 @@ pillow
 social-auth-app-django
 django-environ
 requests
-
+psycopg2-binary
 
